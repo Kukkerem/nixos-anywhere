@@ -50,6 +50,8 @@ Options:
   build the closure on the remote machine instead of locally and copy-closuring it
 * --vm-test
   build the system and test the disk configuration inside a VM without installing it to the target.
+* --impure
+  set impure to pass to every nix related command
 USAGE
 }
 
@@ -148,12 +150,9 @@ while [[ $# -gt 0 ]]; do
     nix_copy_options+=("--from" "$2")
     shift
     ;;
-  --option)
-    key=$2
+  --impure)
+    nix_options+=("--impure")
     shift
-    value=$2
-    shift
-    nix_options+=("--option" "$key" "$value")
     ;;
   --no-substitute-on-destination)
     substitute_on_destination=n
