@@ -152,7 +152,6 @@ while [[ $# -gt 0 ]]; do
     ;;
   --impure)
     nix_options+=("--impure")
-    shift
     ;;
   --no-substitute-on-destination)
     substitute_on_destination=n
